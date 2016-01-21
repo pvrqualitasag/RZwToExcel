@@ -16,9 +16,13 @@
 #' @examples
 #' create_excel_wb(pdInput = iris)
 #'
-create_excel_wb <- function(pdInput, psInFile, psOutFile,
-                            psSheetName, psTableStyle, pnHeaderTextRotation,
-                            pnStartRow, pnStartCol){
+create_excel_wb <- function(pdInput, psInFile,
+                            psOutFile = NULL,
+                            psSheetName = NULL,
+                            psTableStyle = NULL,
+                            pnHeaderTextRotation = NULL,
+                            pnStartRow = NULL,
+                            pnStartCol = NULL){
   # in case no input dataframe pdInput was specified, try to read it from psInFile
   if (is.null(pdInput)){
     stopifnot(file.exists(psInFile))
