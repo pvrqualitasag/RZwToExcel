@@ -1,0 +1,44 @@
+---
+title: "Transfer Data From R To Excel
+       And Add Special Formating"
+author: "Peter von Rohr"
+date: "`r Sys.Date()`"
+output: rmarkdown::pdf_document
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Disclaimer
+This document describes how a dataframe is transfered into an Excel workbook and how some special formatting is applied to the newly created spreadsheet all using R-package `openxlsx`.
+
+## Background
+It is a fact that most statistics and data analysis is done in MS-Excel. Therefore comes the need to transfer data from different systems such as R into Excel workbooks. 
+
+## Preparing steps
+The first step before we can start with the data transfer is the installation of the R-package `openxlsx`. This installation can be done using the standard installation infrastructure in R. 
+
+```{r InstallOpenxlsx, eval=FALSE}
+install.packages(pkgs = "openxlsx")
+```
+
+After installing the package, it is always good to have a look at the documentation. This can be done using the command
+
+```{r BrowseVignettes, eval=FALSE}
+browseVignettes(package = "openxlsx")
+```
+
+The above command will open a browser window showing links to two different documents. 
+
+![Vignettes Screenshot](png/VignettesScreenShot.png)
+
+The first link points to a vignette showing some examples of how data can be transfered from R to Excel. In what follows, we try to use some of those examples which seam to be relevant for what we try to do. 
+
+## Examples
+The simplest way of writing data from R to Excel is by using the function `write.xlsx()`. This function accepts two arguments, the first being the name of a dataframe and the second is the name of the Excel file which is going to be created. Hence writing Andersens iris data to an Excel workbook can be done as follows
+
+```{r, WriteIrisToXlsx}
+library(openxlsx)
+write.xlsx(iris, file = "writeIrisToXLSX1.xlsx")
+```
