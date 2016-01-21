@@ -11,3 +11,4 @@ LazyData: TRUE
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
+Imports: openxlsx
